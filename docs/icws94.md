@@ -1625,7 +1625,7 @@ enum SystemState EMI94(
 #### A.2.1.1 ICWS'86 to ICWS'94 Conversion
  If a modifier is missing, it is assembled according to conversion rules that depend on whether the ICWS'86 or '88 standard is emulated. By default, a MARS should use the ICWS'88 conversion rules. Emulation of ICWS'86 is optional. 
 
-    Opcode                  A-mode     B-mode     modifier
+    Opcode                     A-mode     B-mode     modifier
     ---------------------------------------------------------
     DAT                        #$@<>*{}   #$@<>*{}   F
     MOV,CMP,SEQ,SNE            #          #$@<>*{}   AB
