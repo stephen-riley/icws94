@@ -224,11 +224,11 @@ e:
 ## 2.5 Pseudo-instructions
  Pseudo-opcodes are `ORG`, `EQU`, and `END`. 
 
- `ORG` ("ORiGin") is a way for the assembly file to indicate the logical origin of the warrior.  The A-operand contains an offset to the logical first instruction.  Thus "ORG 0" means execution should start with the first instruction (the default) whereas "ORG 6" means execution should start with the seventh instruction. Although multiple ORG instructions are of no additional benefit to the programmer, they are allowed. When there is more than one ORG instruction in a file, the last ORG instruction encountered will be the one that takes effect. 
+ `ORG` ("ORiGin") is a way for the assembly file to indicate the logical origin of the warrior.  The A-operand contains an offset to the logical first instruction.  Thus "`ORG` 0" means execution should start with the first instruction (the default) whereas "`ORG` 6" means execution should start with the seventh instruction. Although multiple `ORG` instructions are of no additional benefit to the programmer, they are allowed. When there is more than one `ORG` instruction in a file, the last `ORG` instruction encountered will be the one that takes effect. 
 
- `EQU` ("EQUate") is a simple text substitution utility.  Instructions of the form "label EQU text" will replace all occurrences of "label" with the (probably longer and more complicated) "text" before any actual assembly takes place on the file.  Some labels are predefined with the value of run-time variables as if they were defined with EQU at the start of the program (see section 4.2 for the list of predefined labels). 
+ `EQU` ("`EQU`ate") is a simple text substitution utility.  Instructions of the form "label `EQU` text" will replace all occurrences of "label" with the (probably longer and more complicated) "text" before any actual assembly takes place on the file.  Some labels are predefined with the value of run-time variables as if they were defined with `EQU` at the start of the program (see section 4.2 for the list of predefined labels). 
 
- `END` indicates the logical end of the assembly file.  If END has an A-operand, then the A-operand indicates the logical origin of the warrior in the same manner as ORG does.  The rest of the file (after the end of the line containing END) is ignored. 
+ `END` indicates the logical end of the assembly file.  If `END` has an A-operand, then the A-operand indicates the logical origin of the warrior in the same manner as `ORG` does.  The rest of the file (after the end of the line containing `END`) is ignored. 
 
 ## 2.6 Comment Conventions
  "`;redcode<switch>`" as a first line identifies the file as a Redcode assembly file.  The `<switch>` is optional and implementation dependent. 
@@ -1618,7 +1618,7 @@ enum SystemState EMI94(
 
  Parenthetical expressions are allowed. 
 
- There is a new pseudo-opcode, ORG, for specifying the first logical instruction. 
+ There is a new pseudo-opcode, `ORG`, for specifying the first logical instruction. 
 
  There is a new operator, modulus '%', for determining the remainder of integer division. 
 
