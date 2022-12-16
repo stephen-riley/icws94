@@ -11,9 +11,9 @@ Markdown version derived from https://corewar.co.uk/standards/icws94.txt
 ```
  
 
-```
 # Contents
 
+```
    1. Introduction
       1. Purpose
       2. Overview
