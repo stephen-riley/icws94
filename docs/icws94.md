@@ -123,6 +123,7 @@ Markdown version derived from https://corewar.co.uk/standards/icws94.txt
 ## 1.3 Acknowledgements
  This document is the fourth standard for Core War, the first three being "Core War Guidelines" (March 1984) by D. G. Jones and A. K. Dewdney, the International Core War Society standard of - "Core Wars" (May 1986), principally authored by Graeme McRae and the "Core Wars Standard of 1988" (Summer 1988), principally authored by Thomas Gettys.  The latter two standards are often referred to as ICWS'86 and ICWS'88, respectively. 
 
+People who contributed to this document (in alphabetical order): 
 * Scott W. Adkins
 * Mark A. Durham
 * Anders Ivner
@@ -139,7 +140,6 @@ Markdown version derived from https://corewar.co.uk/standards/icws94.txt
 * Stefan Strack
 * Mintardjo Wangsaw
 * Kevin Whyte
- People who contributed to this document (in alphabetical order): 
 
 # 2. Redcode Assembly File Format
  
