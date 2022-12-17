@@ -1668,4 +1668,3 @@ enum SystemState EMI94(
  `MUL`, `DIV`, `MOD`, `SNE`, and `NOP` have been added. `SEQ` is an alias for `CMP`. 
 
  Opcode modifiers have been added. 
-

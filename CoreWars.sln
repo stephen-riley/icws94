@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWars", "CoreWars\CoreWars.csproj", "{5A3B2417-76A5-4B3A-8B09-7A8AFCAEE729}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWars.Test", "CoreWars.Test\CoreWars.Test.csproj", "{B55A8EE2-1A93-47F9-B8E4-540032701607}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A3B2417-76A5-4B3A-8B09-7A8AFCAEE729}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A3B2417-76A5-4B3A-8B09-7A8AFCAEE729}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A3B2417-76A5-4B3A-8B09-7A8AFCAEE729}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A3B2417-76A5-4B3A-8B09-7A8AFCAEE729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B55A8EE2-1A93-47F9-B8E4-540032701607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B55A8EE2-1A93-47F9-B8E4-540032701607}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B55A8EE2-1A93-47F9-B8E4-540032701607}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B55A8EE2-1A93-47F9-B8E4-540032701607}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
