@@ -66,6 +66,21 @@ public class AssemblerTests
     }
 
     [TestMethod]
+    public void LabelsWithColons()
+    {
+        var asm = new Assembler();
+        asm.Assemble(@"
+    l1:
+    l2:  mov 1, l1
+    ");
+        Assert.AreEqual(0u, asm.Org);
+        Assert.AreEqual(1, asm.Program.Count);
+        Assert.AreEqual(2, asm.Labels.Count);
+        Assert.AreEqual(0, asm.Labels["l1"]);
+        Assert.AreEqual(0, asm.Labels["l2"]);
+    }
+
+    [TestMethod]
     public void BasicInstruction()
     {
         var asm = new Assembler();

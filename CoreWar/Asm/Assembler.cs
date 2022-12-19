@@ -148,7 +148,7 @@ public class Assembler
 
         if (!el.IsOpcode())
         {
-            tokLine.Label = el;
+            tokLine.Label = el.Replace(":", "");
             el = pieces.Shift();
         }
 
