@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CoreWars\CoreWars.csproj" />
+    <ProjectReference Include="..\CoreWar\CoreWar.csproj" />
   </ItemGroup>
 
   <ItemGroup> 
