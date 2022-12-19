@@ -1,6 +1,6 @@
-using CoreWars.Asm;
+using CoreWar.Asm;
 
-namespace CoreWars.Test;
+namespace CoreWar.Test;
 
 [TestClass]
 public class AssemblerTests

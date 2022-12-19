@@ -1,3 +1,5 @@
+namespace CoreWar.Instructions;
+
 public class Instruction
 {
     public uint AddrOffset { get; set; }

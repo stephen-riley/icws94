@@ -1,3 +1,5 @@
+namespace CoreWar.Instructions;
+
 public class InstructionPass1 : Instruction
 {
     public bool Resolved { get; set; }

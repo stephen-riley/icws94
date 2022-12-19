@@ -1,3 +1,5 @@
+namespace CoreWar.Instructions;
+
 public enum Opcode
 {
     DAT = 0,

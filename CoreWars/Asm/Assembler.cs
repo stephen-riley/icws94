@@ -1,6 +1,7 @@
 using System.Text.RegularExpressions;
+using CoreWar.Instructions;
 
-namespace CoreWars.Asm;
+namespace CoreWar.Asm;
 
 public class Assembler
 {

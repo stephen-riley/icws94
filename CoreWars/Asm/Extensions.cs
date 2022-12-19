@@ -1,7 +1,8 @@
-namespace CoreWars.Asm;
+namespace CoreWar.Asm;
 
 using System.Collections.Generic;
 using System.Linq;
+using CoreWar.Instructions;
 
 public static class Extensions
 {
@@ -11,7 +12,7 @@ public static class Extensions
 
     public static AddrMode ToAddrMode(this char sigil) => addrModeXlat.ContainsKey(sigil) ? addrModeXlat[sigil] : AddrMode.Direct;
 
-    public static AddrMode ToAddrMode(this string sigil) => sigil != "" ? addrModeXlat[sigil[0]] : AddrMode.Direct;
+    public static AddrMode ToAddrMode(this string sigil) => sigil != "" ? sigil[0].ToAddrMode() : AddrMode.Direct;
 
     public static bool IsOpcode(this string mnemonic) => opcodes.Contains(mnemonic.ToUpperInvariant().Split('.')[0]);
 

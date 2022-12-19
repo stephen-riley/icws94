@@ -1,4 +1,4 @@
-namespace CoreWars.Asm;
+namespace CoreWar.Asm;
 
 public class CompletedParsingEvent : AsmException
 {

@@ -1,6 +1,7 @@
-using CoreWars.Asm;
+using CoreWar.Asm;
+using CoreWar.Instructions;
 
-namespace CoreWars.Test;
+namespace CoreWar.Test;
 
 [TestClass]
 public class AssembleFixtures
