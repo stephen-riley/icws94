@@ -1,0 +1,9 @@
+        step   equ 1092
+
+        spl    1                  ; 4 parallel processes (must be even)
+        spl    1
+
+paper   spl    step,     {src
+        mov    }src,     }paper
+src     mov    *paper+4, }paper   ; must be exactly processes/2 lines after paper
+        jmz.f  @paper+1, *src

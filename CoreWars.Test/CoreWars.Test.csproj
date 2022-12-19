@@ -15,4 +15,14 @@
     <PackageReference Include="coverlet.collector" Version="3.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CoreWars\CoreWars.csproj" />
+  </ItemGroup>
+
+  <ItemGroup> 
+    <Content Include="fixtures\**"> 
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory> 
+    </Content> 
+  </ItemGroup>
+
 </Project>
