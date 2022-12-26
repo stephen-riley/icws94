@@ -1,6 +1,6 @@
 namespace CoreWar.Instructions;
 
-public enum OpMod
+public enum OpcodeModifier
 {
     A,
     B,

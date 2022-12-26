@@ -1,25 +1,7 @@
 namespace CoreWar.Instructions;
 
-public enum Opcode
+public struct Opcode
 {
-    DAT = 0,
-    MOV,
-    ADD,
-    SUB,
-    MUL,
-    DIV,
-    MOD,
-    JMP,
-    JMZ,
-    JMN,
-    DJN,
-    CMP,
-    SEQ,
-    SNE,
-    SLT,
-    SPL,
-    NOP,
-    ORG,
-    EQU,
-    END
+    public Mnemonic Mnemonic;
+    public OpcodeModifier Modifier;
 }

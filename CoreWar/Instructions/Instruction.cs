@@ -3,10 +3,10 @@ namespace CoreWar.Instructions;
 public class Instruction
 {
     public uint AddrOffset { get; set; }
-    public Opcode Opcode { get; set; }
-    public OpMod OpMod { get; set; }
-    public AddrMode ModeA { get; set; }
-    public AddrMode ModeB { get; set; }
-    public int OpA { get; set; }
-    public int OpB { get; set; }
+    public Mnemonic Opcode { get; set; }
+    public OpcodeModifier OpMod { get; set; }
+    public Operand? OperandA { get; set; }
+    public Operand? OperandB { get; set; }
+
+    public bool IsResolved() => (OperandA?.IsResolved() ?? true) && (OperandB?.IsResolved() ?? true);
 }

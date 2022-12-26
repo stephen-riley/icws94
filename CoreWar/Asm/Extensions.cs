@@ -3,12 +3,13 @@ namespace CoreWar.Asm;
 using System.Collections.Generic;
 using System.Linq;
 using CoreWar.Instructions;
+using Sprache;
 
 public static class Extensions
 {
     private static char[] modeSigils = { '#', '$', '*', '@', '{', '<', '}', '>' };
     private static Dictionary<char, AddrMode> addrModeXlat = Enumerable.Range(0, modeSigils.Length).ToDictionary(n => modeSigils[n], n => (AddrMode)n);
-    private static HashSet<string> opcodes = Enum.GetNames<Opcode>().ToHashSet();
+    private static HashSet<string> opcodes = Enum.GetNames<Mnemonic>().ToHashSet();
 
     public static AddrMode ToAddrMode(this char sigil) => addrModeXlat.ContainsKey(sigil) ? addrModeXlat[sigil] : AddrMode.Direct;
 
@@ -16,22 +17,22 @@ public static class Extensions
 
     public static bool IsOpcode(this string mnemonic) => opcodes.Contains(mnemonic.ToUpperInvariant().Split('.')[0]);
 
-    public static (Opcode, OpMod) ToOpcode(this string mnemonic)
+    public static (Mnemonic, OpcodeModifier) ToOpcode(this string mnemonic)
     {
         var pieces = mnemonic.Split('.');
 
-        if (Enum.TryParse<Opcode>(pieces[0].ToUpperInvariant(), out Opcode opcode))
+        if (Enum.TryParse<Mnemonic>(pieces[0].ToUpperInvariant(), out Mnemonic opcode))
         {
             if (pieces.Length > 1)
             {
-                if (Enum.TryParse<OpMod>(pieces[1].ToUpperInvariant(), out OpMod opmod))
+                if (Enum.TryParse<OpcodeModifier>(pieces[1].ToUpperInvariant(), out OpcodeModifier opmod))
                 {
                     return (opcode, opmod);
                 }
             }
             else
             {
-                return (opcode, OpMod.Default);
+                return (opcode, OpcodeModifier.Default);
             }
         }
 
@@ -54,5 +55,32 @@ public static class Extensions
         var el = node.Value;
         list.RemoveFirst();
         return el;
+    }
+
+    public static T ToEnum<T>(this string value) where T : struct
+    {
+        if (string.IsNullOrEmpty(value))
+        {
+            throw new InvalidOperationException();
+        }
+
+        T result;
+        return Enum.TryParse<T>(value, true, out result) ? result : throw new InvalidOperationException($"{value} is not a member of enum {typeof(T)}");
+    }
+
+    public static T ToEnum<T>(this string value, T defaultValue) where T : struct
+    {
+        if (string.IsNullOrEmpty(value))
+        {
+            return defaultValue;
+        }
+
+        T result;
+        return Enum.TryParse<T>(value, true, out result) ? result : defaultValue;
+    }
+
+    public static T? ResolveOptional<T>(this IOption<T> option)
+    {
+        return option.IsDefined ? option.Get() : default(T);
     }
 }

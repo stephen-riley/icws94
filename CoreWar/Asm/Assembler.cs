@@ -40,12 +40,12 @@ public class Assembler
         {
             if (instr.LabelA is not null)
             {
-                instr.OpA = (int)instr.AddrOffset + ResolveExpression(instr.LabelA);
+                // instr.OpA = (int)instr.AddrOffset + ResolveExpression(instr.LabelA);
             }
 
             if (instr.LabelB is not null)
             {
-                instr.OpB = (int)instr.AddrOffset + ResolveExpression(instr.LabelB);
+                // instr.OpB = (int)instr.AddrOffset + ResolveExpression(instr.LabelB);
             }
 
             Program.Add(instr);
@@ -98,26 +98,26 @@ public class Assembler
         (instr.Opcode, instr.OpMod) = tokLine.Opcode.ToOpcode();
         if (int.TryParse(tokLine.Operands[0], out int i))
         {
-            instr.OpA = i;
+            // instr.OpA = i;
         }
         else
         {
             instr.LabelA = tokLine.Operands[0];
         }
-        instr.ModeA = tokLine.Sigils[0].ToAddrMode();
+        // instr.ModeA = tokLine.Sigils[0].ToAddrMode();
 
         if (tokLine.Operands.Count > 1)
         {
             (instr.Opcode, instr.OpMod) = tokLine.Opcode.ToOpcode();
             if (int.TryParse(tokLine.Operands[1], out i))
             {
-                instr.OpB = i;
+                // instr.OpB = i;
             }
             else
             {
                 instr.LabelB = tokLine.Operands[1];
             }
-            instr.ModeB = tokLine.Sigils[1].ToAddrMode();
+            // instr.ModeB = tokLine.Sigils[1].ToAddrMode();
         }
 
         addrOffset++;
