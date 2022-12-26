@@ -1,4 +1,4 @@
-using CoreWar.Instructions;
+using CoreWar.Runtime;
 
 namespace CoreWar.Asm;
 

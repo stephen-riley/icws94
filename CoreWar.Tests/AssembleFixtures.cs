@@ -1,5 +1,5 @@
 using CoreWar.Asm;
-using CoreWar.Instructions;
+using CoreWar.Runtime;
 
 namespace CoreWar.Test;
 

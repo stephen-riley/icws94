@@ -30,11 +30,11 @@ public class AsmGrammarTests
     {
         var instr = RedcodeGrammar.ParseLine("MOV 1 2 ; comment");
         Assert.IsNotNull(instr);
-        Assert.AreEqual(Instructions.Mnemonic.MOV, instr.Opcode);
-        Assert.AreEqual(Instructions.OpcodeModifier.Default, instr.OpMod);
-        Assert.AreEqual(Instructions.AddrMode.Direct, instr.OperandA?.AddrMode);
+        Assert.AreEqual(Runtime.Mnemonic.MOV, instr.Opcode);
+        Assert.AreEqual(Runtime.OpcodeModifier.Default, instr.OpMod);
+        Assert.AreEqual(Runtime.AddrMode.Direct, instr.OperandA?.AddrMode);
         Assert.AreEqual(1, instr.OperandA?.Value);
-        Assert.AreEqual(Instructions.AddrMode.Direct, instr.OperandB?.AddrMode);
+        Assert.AreEqual(Runtime.AddrMode.Direct, instr.OperandB?.AddrMode);
         Assert.AreEqual(2, instr.OperandB?.Value);
     }
 

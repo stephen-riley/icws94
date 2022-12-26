@@ -1,4 +1,4 @@
-namespace CoreWar.Instructions;
+namespace CoreWar.Runtime;
 
 public struct Opcode
 {

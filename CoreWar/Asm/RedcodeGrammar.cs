@@ -1,6 +1,6 @@
 namespace CoreWar.Asm;
 
-using CoreWar.Instructions;
+using CoreWar.Runtime;
 using Sprache;
 
 public static class RedcodeGrammar
@@ -18,11 +18,11 @@ public static class RedcodeGrammar
     public static Parser<OpcodeModifier> OpcodeModifier =
         from _ in Parse.Char('.')
         from m in Parse.Regex("(?i)(" + string.Join('|', modifiers) + ")")
-        select m.ToEnum<OpcodeModifier>(Instructions.OpcodeModifier.Default);
+        select m.ToEnum<OpcodeModifier>(Runtime.OpcodeModifier.Default);
 
     public static Parser<AddrMode> AddrMode =
         from am in Parse.Chars('#', '$', '*', '@', '{', '<', '}', '>').Optional()
-        select am.IsDefined ? am.Get().ToAddrMode() : Instructions.AddrMode.Direct;
+        select am.IsDefined ? am.Get().ToAddrMode() : Runtime.AddrMode.Direct;
 
     public static Parser<string> Comment =
         from _ in Parse.Char(';').Token()
@@ -32,7 +32,7 @@ public static class RedcodeGrammar
     public static Parser<Opcode> Opcode =
         from mne in Mnemonic
         from mod in OpcodeModifier.Optional()
-        select new Opcode { Mnemonic = mne, Modifier = mod.IsDefined ? mod.Get() : Instructions.OpcodeModifier.Default };
+        select new Opcode { Mnemonic = mne, Modifier = mod.IsDefined ? mod.Get() : Runtime.OpcodeModifier.Default };
 
     public static Parser<Operand> Operand =
         from am in AddrMode
@@ -67,8 +67,8 @@ public static class RedcodeGrammar
         from __ in Parse.LineTerminator.Optional()
         select new InstructionPass1()
         {
-            Opcode = instr.ResolveOptional()?.Opcode ?? Instructions.Mnemonic.NoInstruction,
-            OpMod = instr.ResolveOptional()?.OpMod ?? Instructions.OpcodeModifier.Default,
+            Opcode = instr.ResolveOptional()?.Opcode ?? Runtime.Mnemonic.NoInstruction,
+            OpMod = instr.ResolveOptional()?.OpMod ?? Runtime.OpcodeModifier.Default,
             Label = l.ResolveOptional(),
             OperandA = instr.ResolveOptional()?.OperandA,
             OperandB = instr.ResolveOptional()?.OperandB,

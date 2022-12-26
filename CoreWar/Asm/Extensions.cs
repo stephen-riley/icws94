@@ -2,7 +2,7 @@ namespace CoreWar.Asm;
 
 using System.Collections.Generic;
 using System.Linq;
-using CoreWar.Instructions;
+using CoreWar.Runtime;
 using Sprache;
 
 public static class Extensions
