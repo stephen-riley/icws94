@@ -11,13 +11,12 @@ public class AssembleFixtures
     {
         foreach (var file in Directory.GetFiles("fixtures"))
         {
-            var asm = new Assembler();
-            asm.Assemble(File.ReadAllText(file));
-            Assert.IsTrue(asm.Program.Count > 0);
-            foreach (var instr in asm.Program)
+            var prog = RedcodeGrammar.ParseProgram(File.ReadAllText(file));
+            Assert.IsTrue(prog.Count() > 0);
+            foreach (var instr in prog)
             {
-                // Assert.IsTrue(instr.ModeA != AddrMode.None);
-                // Assert.IsTrue(instr.ModeB != AddrMode.None);
+                Assert.IsTrue(instr.OperandA?.AddrMode != AddrMode.None);
+                Assert.IsTrue(instr.OperandB?.AddrMode != AddrMode.None);
             }
         }
     }
