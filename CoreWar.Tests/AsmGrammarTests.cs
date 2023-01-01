@@ -39,6 +39,20 @@ public class AsmGrammarTests
     }
 
     [TestMethod]
+    public void DatInstruction()
+    {
+        var prog = RedcodeGrammar.ParseProgram("label:     dat #1 ; a comment");
+        Assert.AreEqual(1, prog.Count());
+
+        var instr = prog.FirstOrDefault();
+        Assert.IsNotNull(instr);
+        Assert.AreEqual(Runtime.Mnemonic.DAT, instr.Opcode);
+        Assert.AreEqual(Runtime.OpcodeModifier.Default, instr.OpMod);
+        Assert.AreEqual(Runtime.AddrMode.Immediate, instr.OperandA?.AddrMode);
+        Assert.AreEqual(1, instr.OperandA?.Value);
+    }
+
+    [TestMethod]
     public void LineWithLabel()
     {
         var instr = RedcodeGrammar.ParseLine("step  EQU     4");
@@ -55,7 +69,7 @@ public class AsmGrammarTests
     public void MultipleLabels()
     {
         var prog = RedcodeGrammar.ParseProgram(@"
-            l1
+            l1  dat -1
             l2  mov 1, 2");
         Assert.IsNotNull(prog);
         Assert.IsTrue(prog.Count() > 0);

@@ -22,5 +22,7 @@ public enum Mnemonic
     NOP,
     ORG,
     EQU,
-    END
+    END,
+    FOR,
+    ROF
 }

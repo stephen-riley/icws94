@@ -9,6 +9,8 @@
 
   <ItemGroup>
     <PackageReference Include="Sprache" Version="2.3.1" />
+  
+    <!-- <ProjectReference Include="..\..\Sprache\src\Sprache\Sprache.csproj" /> -->
   </ItemGroup>
 
 </Project>
