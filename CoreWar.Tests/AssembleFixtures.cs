@@ -20,4 +20,12 @@ public class AssembleFixtures
             }
         }
     }
+
+    [TestMethod]
+    public void AssembleDwarf()
+    {
+        var src = File.ReadAllText("fixtures/dwarf.rc");
+        var prog = RedcodeGrammar.ParseProgram(src);
+        Assert.AreEqual(4, prog.Where(i => i.IsInstruction()).Count());
+    }
 }

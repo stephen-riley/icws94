@@ -9,4 +9,7 @@ public class Instruction
     public Operand? OperandB { get; set; }
 
     public bool IsResolved() => (OperandA?.IsResolved() ?? true) && (OperandB?.IsResolved() ?? true);
+
+    public override string ToString() =>
+        $"{Opcode}{(OpMod != OpcodeModifier.Default ? $".{OpMod}" : "")} {OperandA?.ToString() ?? ""} {OperandB?.ToString() ?? ""}";
 }

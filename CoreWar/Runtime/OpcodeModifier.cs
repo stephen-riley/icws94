@@ -2,10 +2,10 @@ namespace CoreWar.Runtime;
 
 public enum OpcodeModifier
 {
-    A,
-    B,
     AB,
     BA,
+    A,
+    B,
     F,
     X,
     I,

@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/CoreWars/bin/Debug/net6.0/CoreWars.dll",
+            "program": "${workspaceFolder}/CoreWar/bin/Debug/net6.0/CoreWar.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/CoreWars",
+            "cwd": "${workspaceFolder}/CoreWar",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false

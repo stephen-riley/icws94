@@ -4,8 +4,8 @@ using CoreWar.Runtime;
 
 public class AssemblyContext
 {
-    private int forIndex;
-    private string? forLabel;
+    // private int forIndex;
+    // private string? forLabel;
 
     public Dictionary<string, int> Labels { get; } = new();
 
@@ -13,7 +13,7 @@ public class AssemblyContext
 
     public int Org { get; private set; }
 
-    private AssemblyContext? parent;
+    // private AssemblyContext? parent;
 
     public static AssemblyContext CreateAndAssemble(string src)
     {
@@ -21,6 +21,8 @@ public class AssemblyContext
         var ctx = new AssemblyContext();
 
         int offset = 0;
+
+        // TODO: expand FOR..ROF blocks
 
         // assign offsets to instructions
         foreach (var instr in pass1)
@@ -54,6 +56,33 @@ public class AssemblyContext
             }
         }
 
+        // resolve all operands
+        foreach (var instr in pass1.Where(i => i.IsInstruction() && !i.IsResolved()))
+        {
+            if (instr.OperandA is Operand opA)
+            {
+                if (opA.LabelExpr is string labelExpr)
+                {
+                    instr.OperandA.Value = ctx.Labels[labelExpr];
+                    opA.LabelExpr = null;
+                }
+            }
+
+            if (instr.OperandB is Operand opB)
+            {
+                if (opB.LabelExpr is string labelExpr)
+                {
+                    instr.OperandB.Value = ctx.Labels[labelExpr];
+                    opB.LabelExpr = null;
+                }
+            }
+        }
+
+        foreach (var instr in pass1.Where(i => i.IsInstruction()))
+        {
+            Console.WriteLine(instr);
+        }
+
         ctx.Instructions = pass1.Where(i => i.IsInstruction()).ToList();
 
         return ctx;
@@ -70,17 +99,12 @@ public class AssemblyContext
 
         if (op.LabelExpr is null)
         {
-            throw new AsmException($"Operand {opName} has no contents in {nameof(ResolveExpression)}");
-        }
-
-        if (int.TryParse(op.LabelExpr, out int i))
-        {
-            op.Value = i;
-            return i;
+            return op.Value;
         }
         else
         {
-            op.Value = Labels[op.LabelExpr.ToLowerInvariant()] + instr.AddrOffset;
+            op.Value = Labels[op.LabelExpr.ToLowerInvariant()];
+            op.LabelExpr = null;
             return op.Value;
         }
     }

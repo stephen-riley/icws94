@@ -21,4 +21,6 @@ public class Operand
     }
 
     public bool IsResolved() => LabelExpr != null;
+
+    public override string ToString() => $"{AddrMode.ToSigil()}{(LabelExpr is null ? Value.ToString() : LabelExpr)}";
 }
